@@ -9,7 +9,7 @@ OUTPUT=w3c.bib
 # Check for dependencies
 for i in xsltproc wget; do
   if !(which $i &>/dev/null); then
-    echo "Error: please install xsltproc first."
+    echo "Error: please install $i first."
     exit 1
   fi
 done
