@@ -21,7 +21,7 @@
   <xsl:template match="rec:REC">
     @TechReport{<xsl:apply-templates mode="bibtex-label" select="."/>,
         author = {<xsl:apply-templates select="rec:editor[1]"/><xsl:for-each select="rec:editor[position() &gt; 1]"> and <xsl:apply-templates select="."/></xsl:for-each>},
-        title  = {{<xsl:apply-templates select="dc:title"/>}}
+        title  = {{<xsl:apply-templates select="dc:title"/>}},
         note = {\url{<xsl:value-of select="@rdf:about"/>}. Latest version available at \url{<xsl:value-of select="doc:versionOf/@rdf:resource"/>}},
         year = {<xsl:apply-templates mode="bibtex-year" select="dc:date"/>},
         month = <xsl:apply-templates mode="bibtex-month" select="dc:date"/>,
