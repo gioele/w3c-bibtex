@@ -34,14 +34,21 @@
   <xsl:template match="rec:editor"><xsl:value-of select="contact:fullName"/></xsl:template>
 
   <xsl:template match="*" mode="bibtex-label">
-    <xsl:variable name="surname"
-		  select="substring-after(rec:editor[1]/contact:fullName, ' ')"/>
-    <xsl:variable name="safeSurname"
-		  select="translate($surname,
-			  'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.- 0123456789ñÑçÇáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ',
-			  'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
+    <xsl:variable name="subject-uri" select="@rdf:about"/>
+    <xsl:variable name="subject-uri-clean">
+      <xsl:choose>
+        <xsl:when test="substring($subject-uri, string-length($subject-uri), 1) = '/'">
+          <xsl:value-of select="substring($subject-uri, 1, string-length($subject-uri) - 1)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$subject-uri"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="subject-id" select="substring-after($subject-uri-clean, '-')"/>
     
-    <xsl:value-of select="$safeSurname"/>
+    <xsl:text>W3C:</xsl:text>
+    <xsl:value-of select="substring($subject-id, 1, string-length($subject-id) - 9)"/>
     <xsl:text>:</xsl:text>
     <xsl:apply-templates select="dc:date" mode="bibtex-year"/>
   </xsl:template>
