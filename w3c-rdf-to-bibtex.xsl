@@ -41,7 +41,9 @@
 			  'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.- 0123456789ñÑçÇáéíóúÁÉÍÓÚäëïöüÄËÏÖÜ',
 			  'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
     
-    <xsl:value-of select="$safeSurname"/>:<xsl:apply-templates select="dc:date" mode="bibtex-year"/>
+    <xsl:value-of select="$safeSurname"/>
+    <xsl:text>:</xsl:text>
+    <xsl:apply-templates select="dc:date" mode="bibtex-year"/>
   </xsl:template>
 
   <xsl:template match="dc:date" mode="bibtex-year"><xsl:value-of select="substring-before(text(), '-')"/></xsl:template>
