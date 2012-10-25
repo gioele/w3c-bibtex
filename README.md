@@ -10,6 +10,8 @@ project](http://www.w3.org/2002/01/tr-automation/tr.rdf).
 Authors
 -------
 
+Maintained by Gioele Barabucci <http://svario.it/gioele>.
+
 Originally developed by Antonio García at <http://gitorious.org/w3c-bibtex>.
 
 
