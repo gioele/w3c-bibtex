@@ -1,15 +1,15 @@
-#!/bin/bash
+#!/bin/sh
 
 # Basic configuration
-URL=http://www.w3.org/2002/01/tr-automation/tr.rdf
+URL="http://www.w3.org/2002/01/tr-automation/tr.rdf"
 FILE=$(basename "$URL")
-STYLESHEET=w3c-rdf-to-bibtex.xsl
-OUTPUT=w3c.bib
+STYLESHEET="w3c-rdf-to-bibtex.xsl"
+OUTPUT="w3c.bib"
 
 # Check for dependencies
-for i in xsltproc wget; do
-  if !(which $i &>/dev/null); then
-    echo "Error: please install $i first."
+for app in xsltproc wget ; do
+  if ! which $app >/dev/null 2>&1 ; then
+    echo "Error: please install $app first."
     exit 1
   fi
 done
