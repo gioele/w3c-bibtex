@@ -46,9 +46,10 @@
       </xsl:choose>
     </xsl:variable>
     <xsl:variable name="subject-id" select="substring-after($subject-uri-clean, '-')"/>
+    <xsl:variable name="subject" select="substring($subject-id, 1, string-length($subject-id) - 9)"/>
     
     <xsl:text>W3C:</xsl:text>
-    <xsl:value-of select="substring($subject-id, 1, string-length($subject-id) - 9)"/>
+    <xsl:value-of select="$subject"/>
     <xsl:text>:</xsl:text>
     <xsl:apply-templates select="dc:date" mode="bibtex-year"/>
   </xsl:template>
