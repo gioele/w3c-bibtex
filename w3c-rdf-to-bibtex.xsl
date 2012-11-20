@@ -11,7 +11,7 @@
     xmlns:exsl="http://exslt.org/common"
     version="1.0">
 
-  <xsl:output method="text"/>
+  <xsl:output method="text" encoding="iso-8859-1"/>
   <xsl:preserve-space elements="rec:REC"/>
 
   <xsl:template match="rdf:RDF">
@@ -55,6 +55,12 @@
   </xsl:template>
 
   <xsl:template match="dc:date" mode="bibtex-year"><xsl:value-of select="substring-before(text(), '-')"/></xsl:template>
+
+  <xsl:template match="dc:title">
+    <xsl:variable name="raw-title" select="."/>
+
+    <xsl:value-of select="translate($raw-title, '™', '')"/>
+  </xsl:template>
 
   <xsl:template match="dc:date" mode="bibtex-month">
     <xsl:variable name="month" select="number(substring-before(substring-after(text(),'-'),'-'))"/>
