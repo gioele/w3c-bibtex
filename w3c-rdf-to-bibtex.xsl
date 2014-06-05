@@ -74,6 +74,7 @@
       <m>jul</m>
       <m>aug</m>
       <m>sep</m>
+      <m>oct</m>
       <m>nov</m>
       <m>dec</m>
     </xsl:variable>
