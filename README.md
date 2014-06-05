@@ -14,6 +14,8 @@ Maintained by Gioele Barabucci <http://svario.it/gioele>.
 
 Originally developed by Antonio García at <http://gitorious.org/w3c-bibtex>.
 
+Includes fixes by [Marcus Codben](http://marcuscobden.co.uk/).
+
 
 Licence
 -------
